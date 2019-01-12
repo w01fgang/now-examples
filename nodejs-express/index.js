@@ -3,9 +3,10 @@ const express = require('express')
 const port = process.env.PORT || 3000
 const app = express()
 
+app.set('view engine', 'pug')
+
 app.get('/', (req, res) => {
-    res.send('<h1><marquee direction=right>Hello from Express path / on Now 2.0!</marquee></h1>')
-    res.end()
+    res.render('index', { app: 'Now', version: '2.0' })
 })
 
 app.get('/about', (req, res) => {
